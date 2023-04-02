@@ -125,4 +125,30 @@ void Down(int game[GameSize][GameSize]){
 		
 	}
 }
+void Right(int game[GameSize][GameSize]){
+	int a,b,c;
+	for(b=0;b<GameSize;b++){
+		int row=3;
+		for(a=3;a>=0;a--){
+			if (game[b][a]!=0){
+				game[b][row]=game[b][a];
+				if(row!=a){
+					game[b][a]=0;
+				}
+				row--;
+			}
+		}
+		for (c=3;c>0;c--){
+		
+		
+			if (game[b][c]==game[b][c-1]){
+				game[b][c]=game[b][c]*2;
+				game[b][c-1]=0;
+				score=score+game[b][c];
+			}
+		}
+				
+		
+	}
+}
 
