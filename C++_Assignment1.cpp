@@ -75,3 +75,29 @@ void newnum(int game[GameSize][GameSize]){
 	}
 
 }
+void Up(int game[GameSize][GameSize]){
+	int a,b,c;
+	for(b=0;b<GameSize;b++){
+		int row=0;
+		for(a=0;a<GameSize;a++){
+			if (game[a][b]!=0){
+				game[row][b]=game[a][b];
+				if(row!=a){
+					game[a][b]=0;
+				}
+				row++;
+			}
+		}
+			for(c=0;c<3;c++){
+			
+			if (game[c][b]==game[c+1][b]){
+				game[c][b]=game[c][b]*2;
+				game[c+1][b]=0;
+				score=score+game[c][b];
+			
+			}
+		}			
+		
+	}
+}
+
