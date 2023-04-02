@@ -45,3 +45,33 @@ void board(int game[GameSize][GameSize]){
 	cout<<"Score: "<<score<<endl;
 	cout<<"HighScore: "<<high;
 }
+void newnum(int game[GameSize][GameSize]){
+	int newnumberrow,newnumbercol,newnumber;
+	
+	
+	while(1){
+		newnumberrow=rand()%4;
+		newnumbercol=rand()%4;
+		srand(time(0));
+		if(game[newnumberrow][newnumbercol]==0){
+		
+		while(1){
+		
+		newnumber=rand()%3+2;	
+		if (newnumber==2){
+			    break;
+			}
+		
+		else{
+			newnumber=4;
+			    break;
+			}	
+		}
+					
+		game[newnumberrow][newnumbercol]=newnumber;
+		break;
+		
+		}
+	}
+
+}
