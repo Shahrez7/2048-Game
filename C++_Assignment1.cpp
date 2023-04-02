@@ -21,23 +21,25 @@ void board(int game[GameSize][GameSize]){
 	for(start1=0;start1<max;start1++){
 		SetConsoleTextAttribute(col,start1+1);
 		
-		cout<<"\t\t\t-----------------\n\t\t\t";
+		cout<<"\t\t\t  ----------------------------------\n\t\t\t";
 		for (start2=0;start2<max;start2++){
 			SetConsoleTextAttribute(col,start2+1);
-			//col_code=2;
-			//SetConsoleTextAttribute(col,col_code);
-			if(game[start1][start2]==1000) cout<<"|   ";
-			else
+			col_code=2;
+			SetConsoleTextAttribute(col,col_code);
+			//if(game[start1][start2]>100) cout<<"|   ";
+			//if(game[start1][start2]>1000) cout<<"|    ";
+			//else{
+			
 			col_code=8;
 			SetConsoleTextAttribute(col,col_code);
-				cout<<"| "<<game[start1][start2]<<" ";
-		}
+				cout<<"  |   "<<game[start1][start2]<<" ";}
+		//}
 		col_code=1;
 		SetConsoleTextAttribute(col,col_code);
-		cout << "|"<<endl;
+		cout << "   |"<<endl;
 		
 	}
-	cout<<"\t\t\t-----------------\n";	
+	cout<<"\t\t\t  ----------------------------------\n";	
 	col_code=3;
 	SetConsoleTextAttribute(col,col_code);
 	//cout<<"\t\tThankyou for Playing the 2048 Game!!";
@@ -202,12 +204,18 @@ int Over(int game[GameSize][GameSize]){
 }
 int main(){
 	int g[GameSize][GameSize]={0};
+	HANDLE col;
+	col= GetStdHandle(STD_OUTPUT_HANDLE);
+	int col_code;
+	SetConsoleTextAttribute(col,1);
 	
 	int again;
 	int option;
-	cout<<"WELCOME TO 2048 GAME"<<endl;
-	cout<<"SELECT FROM THE OPTIONS BELOW"<<endl;
-	cout<<"1)START THE GAME\t 2)INSTRUCTIONS\t 3)QUIT\t"<<endl;
+	cout<<"---------- WELCOME TO 2048 GAME ----------"<<endl;
+	SetConsoleTextAttribute(col,2);
+	cout<<"---------- SELECT FROM THE OPTIONS BELOW ----------"<<endl;
+	SetConsoleTextAttribute(col,3);
+	cout<<"1)START THE GAME\t 2)INSTRUCTIONS\t     \t3)QUIT\t"<<endl;
 	cin>>option;
 	if (option==3){
 		exit(0);
