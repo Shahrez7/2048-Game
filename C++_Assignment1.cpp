@@ -174,4 +174,31 @@ void Left(int game[GameSize][GameSize]){
 		
 	}
 }
+int Over(int game[GameSize][GameSize]){
+	int x,y;
+	for (x=0;x<GameSize;x++){
+		for (y=0;y<GameSize;y++){
+			if(game[x][y]==2048){
+				cout<<"Congratulations You Won the 2048 Game"<<endl;
+				return 1;
+			}
+			if(game[x][y]==0){
+				return 0;
+			}
+			if(game[x][y]==game[x][y+1]){
+				if(y!=3){
+					return 0;
+				}
+			}
+			if(game[x][y]==game[x+1][y]){
+				if(x!=3){
+					return 0;
+				}
+			}
+		}
+	}
+	cout<<"No Tiles Left"<<endl;
+	return 1;
+}
+
 
