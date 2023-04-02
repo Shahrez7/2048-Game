@@ -200,5 +200,99 @@ int Over(int game[GameSize][GameSize]){
 	cout<<"No Tiles Left"<<endl;
 	return 1;
 }
+int main(){
+	int g[GameSize][GameSize]={0};
+	
+	int again;
+	int option;
+	cout<<"WELCOME TO 2048 GAME"<<endl;
+	cout<<"SELECT FROM THE OPTIONS BELOW"<<endl;
+	cout<<"1)START THE GAME\t 2)INSTRUCTIONS\t 3)QUIT\t"<<endl;
+	cin>>option;
+	if (option==3){
+		exit(0);
+	}
+	if (option==2){
+		cout<<"1. Slide the grid left, right, up,down to merge tiles. "<<endl;
+		cout<<"2. When two same number merge, they merge into one. "<<endl;
+		cout<<"3. Create 2048 tile and Win the Game. "<<endl;
+		cout<<"\n\n\n\n\n";
+		main();
+		
+	}
+	if (option==1){
+		
+	newnum(g);
+	newnum(g);
+	system("cls");
+	board(g);
+	
+	int ch;
+	int check;
+	while(check!=1){
+		
+    	ch=getch();
+    	system("cls");
+    	if (ch==72){
+    		Up(g);
+    		newnum(g);
+    		
+		}
+		else if (ch==80){
+    		Down(g);
+    		newnum(g);
+    		
+		}
+		else if (ch==75){
+    		Left(g);
+    		newnum(g);
+		}
+		else if (ch==77){
+    		Right(g);
+    		newnum(g);
+		}
+		
+		board(g);
+		check=Over(g);
+		if (check==1){
+			cout<<"GAME OVER !!!"<<endl;
+			break;
+		}
+	
+		
+	}
+	if (score>=high){
+        high=score;
+        
+    }
+    
+	cout<<"Game Finished"<<endl;
+	cout<<"Final Score: "<<score<<endl;
+	cout<<"High Score: "<<high<<endl;
+	
+	cout<<"Do you want to play again? Enter 1 for Yes or 2 for No."<<endl;
+	cin>>again;
+	if (again==1){
+		score=0;
+		main();
+	}
+	else{
+		exit(0);
+	}
+	
+		
+	}
+	else if( option!=1 && option!=2 && option!=3){
+		cout<<"Invalid Input"<<endl;
+		cout<"\n\n\n";
+		main();
+	}
+	
+	
+	
+	
 
+
+
+}
 
