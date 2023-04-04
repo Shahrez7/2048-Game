@@ -26,14 +26,10 @@ void board(int game[GameSize][GameSize]){
 			SetConsoleTextAttribute(col,start2+1);
 			col_code=2;
 			SetConsoleTextAttribute(col,col_code);
-			//if(game[start1][start2]>100) cout<<"|   ";
-			//if(game[start1][start2]>1000) cout<<"|    ";
-			//else{
-			
 			col_code=8;
 			SetConsoleTextAttribute(col,col_code);
 				cout<<"  |   "<<game[start1][start2]<<" ";}
-		//}
+		
 		col_code=1;
 		SetConsoleTextAttribute(col,col_code);
 		cout << "   |"<<endl;
@@ -203,7 +199,12 @@ int Over(int game[GameSize][GameSize]){
 	return 1;
 }
 int main(){
-	int g[GameSize][GameSize]={0};
+	int g[GameSize][GameSize];
+	for (int row=0;row<4;row++){
+		for (int col=0;col<4;col++){
+			g[row][col]=0;
+		}
+	}
 	HANDLE col;
 	col= GetStdHandle(STD_OUTPUT_HANDLE);
 	int col_code;
@@ -282,6 +283,8 @@ int main(){
 	cin>>again;
 	if (again==1){
 		score=0;
+		system("cls");
+		
 		main();
 	}
 	else{
